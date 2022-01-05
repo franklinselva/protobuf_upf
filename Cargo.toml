@@ -1,0 +1,12 @@
+[package]
+edition = "2021"
+name = "protobuf_upf"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+protobuf = {version = "2", features = ["with-bytes"]}
+
+[build-dependencies]
+protoc-rust = "2.0"
