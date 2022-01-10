@@ -1,0 +1,8 @@
+antlr4-python3-runtime==4.7.2
+grpcio==1.43.0
+grpcio-tools==1.43.0
+multipledispatch==0.6.0
+protobuf==3.19.1
+six==1.16.0
+tarski @ git+https://github.com/aig-upf/tarski.git@ebfda1c13ac908904d5b74587971cc7149e73d85
+upf @ file:///Users/franklinselva/Documents/Work/protobuf_upf/upf
