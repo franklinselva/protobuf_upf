@@ -1,5 +1,5 @@
 /*
- *   Copyright (c) 2021 
+ *   Copyright (c) 2021
  *   All rights reserved.
  */
 // Copyright 2021 Franklin Selva. All rights reserved.
@@ -8,7 +8,7 @@
 
 extern crate protoc_rust;
 
-use protoc_rust::{Customize, Codegen};
+use protoc_rust::{Codegen, Customize};
 
 fn main() {
     Codegen::new()
