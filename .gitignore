@@ -1,3 +1,4 @@
 /target
 /upf/*
 *env*
+*__pycache__*
