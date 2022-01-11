@@ -62,11 +62,12 @@ def main():
     print("\033[92m" + "Acquiring problems..." + "\033[0m")
     problems_ = get_example_problems()
     print("\033[94m" + "Acquired problems: " + "\033[0m")
-    print(problems_.keys())
+    for key in problems_.keys():
+        print(key)
     problem = problems_["robot"].problem
 
     # Start server
-    print("\033[92m" + "Starting server..." + "\033[0m")
+    print("\n\033[92m" + "Starting server..." + "\033[0m")
     server = UpfGrpcServer(port=2222)
     server.start()
 
