@@ -11,6 +11,8 @@ from from_protobuf import FromProtobufConverter
 from to_protobuf import ToProtobufConverter
 from problem import get_example_problems
 
+EXPORT_TEMPLATE = True
+
 
 class UpfGrpcServer(upf_pb2_grpc.UpfServicer):
     def __init__(self, port):
@@ -49,6 +51,10 @@ class UpfGrpcClient:
         with grpc.insecure_channel("%s:%d" % (self.host, self.port)) as channel:
             stub = upf_pb2_grpc.UpfStub(channel)
             req = self.to_protobuf.convert(problem)
+
+            if EXPORT_TEMPLATE:
+                with open("data/UPF.md", "w") as f:
+                    f.write("```bash\n" + str(req) + "```")
 
             answer = stub.plan(req)
 

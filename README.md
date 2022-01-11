@@ -22,6 +22,10 @@ Available problems right now (in python),
 - matchcellar
 - timed_connected_locations
 
+## Current UPF Problem template
+
+The parsed UPF problem data is available in [data/UPF.md](data/UPF.md)
+
 ## First run
 
 To start the initial setup, you can start in a `pyenv`,
