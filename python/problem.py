@@ -17,9 +17,10 @@
 # limitations under the License.
 
 
+from collections import namedtuple
+
 import upf
 from upf.shortcuts import *
-from collections import namedtuple
 
 Example = namedtuple("Example", ["problem", "plan"])
 

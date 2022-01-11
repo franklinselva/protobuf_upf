@@ -12,10 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import upf_pb2 as upf_pb2
-from converter import Converter, handles
 import upf.model
 import upf.plan
+
+import upf_pb2 as upf_pb2
+from converter import Converter, handles
 
 
 class ToProtobufConverter(Converter):
@@ -71,7 +72,7 @@ class ToProtobufConverter(Converter):
     @handles(upf.model.InstantaneousAction)
     def _convert_instantaneous_action(self, a):
         return upf_pb2.Action(
-            name=a.name(),
+            name=a.name,
             parameters=[p.name() for p in a.parameters()],
             parameterTypes=[p.type().name() for p in a.parameters()],
             preconditions=[self.convert(p) for p in a.preconditions()],
@@ -81,17 +82,17 @@ class ToProtobufConverter(Converter):
     @handles(upf.model.Problem)
     def _convert_problem(self, p):
         objs = []
-        for t in p.user_types().keys():
-            for o in p.objects(p.user_types()[t]):
+        for t in p.user_types():
+            for o in p.objects(t):
                 objs.append(o)
 
         t = p.env.expression_manager.TRUE()
 
         return upf_pb2.Problem(
-            name=p.name(),
-            fluents=[self.convert(p.fluent(f)) for f in p.fluents()],
+            name=p.name,
+            fluents=[self.convert(p.fluent(f.name())) for f in p.fluents()],
             objects=[self.convert(o) for o in objs],
-            actions=[self.convert(p.action(a)) for a in p.actions()],
+            actions=[self.convert(p.action(a.name)) for a in p.actions()],
             initialState=[
                 self.convert(upf.model.Effect(x, v, t))
                 for x, v in p.initial_values().items()

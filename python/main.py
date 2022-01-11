@@ -60,7 +60,10 @@ def main():
     """Main function"""
     # Setup problem
     print("\033[92m" + "Acquiring problems..." + "\033[0m")
-    problem = get_example_problems()
+    problems_ = get_example_problems()
+    print("\033[94m" + "Acquired problems: " + "\033[0m")
+    print(problems_.keys())
+    problem = problems_["robot"].problem
 
     # Start server
     print("\033[92m" + "Starting server..." + "\033[0m")
