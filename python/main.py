@@ -72,6 +72,10 @@ def main():
         print(key)
     problem = problems_["robot"].problem
 
+    if EXPORT_TEMPLATE:
+        with open("data/problem.md", "w") as f:
+            f.write("```bash\n" + str(problem) + "```")
+
     # Start server
     print("\n\033[92m" + "Starting server..." + "\033[0m")
     server = UpfGrpcServer(port=2222)

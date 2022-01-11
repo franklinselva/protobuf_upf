@@ -24,6 +24,7 @@ Available problems right now (in python),
 
 ## Current UPF Problem template
 
+The problem is presented as [data/problem.md](data/problem.md)
 The parsed UPF problem data is available in [data/UPF.md](data/UPF.md)
 
 ## First run
