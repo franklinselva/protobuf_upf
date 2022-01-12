@@ -6,15 +6,18 @@ version = "0.1.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-protobuf = {version = "2", features = ["with-bytes"]}
+async-trait = "0.1"
+prost = "0.9"
+tokio = {version = "1.0", features = ["macros", "rt-multi-thread"]}
+tonic = "0.6"
 
 [build-dependencies]
-protoc-rust = "2.0"
+tonic-build = "0.6"
 
-#  # server binary
-# [[bin]]
-#     name = "server"
-#     path = "src/upf/server.rs"
+# server binary
+[[bin]]
+name = "upf-server"
+path = "src/server.rs"
 
 # # client binary
 # [[bin]]

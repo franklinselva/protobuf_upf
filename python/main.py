@@ -2,16 +2,16 @@
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
 from concurrent import futures
-import grpc
 
+import grpc
 from upf.shortcuts import *
 
 import upf_pb2_grpc as upf_pb2_grpc
 from from_protobuf import FromProtobufConverter
-from to_protobuf import ToProtobufConverter
 from problem import get_example_problems
+from to_protobuf import ToProtobufConverter
 
-EXPORT_TEMPLATE = True
+EXPORT_TEMPLATE = False
 
 
 class UpfGrpcServer(upf_pb2_grpc.UpfServicer):
