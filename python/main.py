@@ -77,19 +77,21 @@ def main():
             f.write("```bash\n" + str(problem) + "```")
 
     # Start server
-    print("\n\033[92m" + "Starting server..." + "\033[0m")
-    server = UpfGrpcServer(port=2222)
-    server.start()
+    # print("\n\033[92m" + "Starting server..." + "\033[0m")
+    # server = UpfGrpcServer(port=2222)
+    # server.start()
 
     # Start client
     print("\033[92m" + "Starting client..." + "\033[0m")
-    client = UpfGrpcClient(host="localhost", port=2222)
+    client = UpfGrpcClient(host="127.0.0.1", port=2222)
     plan = client(problem)
+
+    # Validate plan
     with PlanValidator(problem_kind=problem.kind()) as validator:
         res = validator.validate(problem, plan)
         print(res)
 
-    server.wait_for_termination()
+    # server.wait_for_termination()
 
 
 if __name__ == "__main__":

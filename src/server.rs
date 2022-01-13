@@ -20,6 +20,7 @@ pub struct UpfService {}
 #[async_trait]
 impl Upf for UpfService {
     async fn plan(&self, request: Request<Problem>) -> Result<Response<Answer>, Status> {
+        println! ("Planning...");
         let _problem = Problem::from(request.into_inner());
         let answer = Answer::default();
         let response = Response::new(answer);
@@ -43,7 +44,8 @@ pub struct Deserialize {
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let addr = "[::1]:2222".parse()?;
+    // Set address to localhost
+    let addr = "127.0.0.1:2222".parse()?;
     let upf_service = UpfService::default();
 
     Server::builder()
