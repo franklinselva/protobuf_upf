@@ -97,11 +97,11 @@ class FromProtobufConverter(Converter):
         for i in range(len(msg.parameters)):
             p_name = msg.parameters[i]
             t_name = msg.parameterTypes[i]
-            if t_name not in problem.user_types().keys():
+            if t_name in problem.user_types():
+                print("Warning: action parameter type not found:", t_name)
                 raise ValueError("Unknown type: " + msg.signatures[i])
-            op_sig[p_name] = problem.user_type(
-                t_name
-            )  # TODO: deal with non user-defined types
+            else:
+                op_sig[p_name] = problem.env.type_manager.UserType(t_name)  # TODO: deal with non user-defined types
 
         op_upf = upf.model.InstantaneousAction(op_name, **op_sig)
         op_params = {}
