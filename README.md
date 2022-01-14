@@ -37,8 +37,14 @@ sh first_setup.sh
 
 ## Usage
 
-To start the python main script,
+To start the python client, you can start in a `pyenv`,
 
 ```
 python python/main.py
+```
+
+And the server can be started by,
+
+```
+cargo run --bin upf-server
 ```
