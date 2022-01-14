@@ -15,7 +15,7 @@ class UpfStub(object):
             channel: A grpc.Channel.
         """
         self.plan = channel.unary_unary(
-                '/Upf/plan',
+                '/upf.Upf/plan',
                 request_serializer=upf__pb2.Problem.SerializeToString,
                 response_deserializer=upf__pb2.Answer.FromString,
                 )
@@ -40,7 +40,7 @@ def add_UpfServicer_to_server(servicer, server):
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Upf', rpc_method_handlers)
+            'upf.Upf', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
@@ -59,7 +59,7 @@ class Upf(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/Upf/plan',
+        return grpc.experimental.unary_unary(request, target, '/upf.Upf/plan',
             upf__pb2.Problem.SerializeToString,
             upf__pb2.Answer.FromString,
             options, channel_credentials,

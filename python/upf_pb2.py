@@ -15,11 +15,11 @@ _sym_db = _symbol_database.Default()
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='upf.proto',
-  package='',
+  package='upf',
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\tupf.proto\"<\n\x06\x46luent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tvalueType\x18\x02 \x01(\t\x12\x11\n\tsignature\x18\x03 \x03(\t\"$\n\x06Object\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\"P\n\nExpression\x12\x0c\n\x04type\x18\x01 \x01(\x03\x12\x19\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x0b.Expression\x12\x19\n\x07payload\x18\x03 \x01(\x0b\x32\x08.Payload\"<\n\nAssignment\x12\x16\n\x01x\x18\x01 \x01(\x0b\x32\x0b.Expression\x12\x16\n\x01v\x18\x02 \x01(\x0b\x32\x0b.Expression\"&\n\x07Payload\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x84\x01\n\x06\x41\x63tion\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nparameters\x18\x02 \x03(\t\x12\x16\n\x0eparameterTypes\x18\x03 \x03(\t\x12\"\n\rpreconditions\x18\x04 \x03(\x0b\x32\x0b.Expression\x12\x1c\n\x07\x65\x66\x66\x65\x63ts\x18\x05 \x03(\x0b\x32\x0b.Assignment\"\xa4\x01\n\x07Problem\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x18\n\x07\x66luents\x18\x02 \x03(\x0b\x32\x07.Fluent\x12\x18\n\x07objects\x18\x03 \x03(\x0b\x32\x07.Object\x12\x18\n\x07\x61\x63tions\x18\x04 \x03(\x0b\x32\x07.Action\x12!\n\x0cinitialState\x18\x05 \x03(\x0b\x32\x0b.Assignment\x12\x1a\n\x05goals\x18\x06 \x03(\x0b\x32\x0b.Expression\"J\n\x0e\x41\x63tionInstance\x12\x17\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x07.Action\x12\x1f\n\nparameters\x18\x02 \x03(\x0b\x32\x0b.Expression\"2\n\x0eSequentialPlan\x12 \n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x0f.ActionInstance\"7\n\x06\x41nswer\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12\x1d\n\x04plan\x18\x02 \x01(\x0b\x32\x0f.SequentialPlan2 \n\x03Upf\x12\x19\n\x04plan\x12\x08.Problem\x1a\x07.Answerb\x06proto3'
+  serialized_pb=b'\n\tupf.proto\x12\x03upf\"<\n\x06\x46luent\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tvalueType\x18\x02 \x01(\t\x12\x11\n\tsignature\x18\x03 \x03(\t\"$\n\x06Object\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\t\"X\n\nExpression\x12\x0c\n\x04type\x18\x01 \x01(\x03\x12\x1d\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x0f.upf.Expression\x12\x1d\n\x07payload\x18\x03 \x01(\x0b\x32\x0c.upf.Payload\"D\n\nAssignment\x12\x1a\n\x01x\x18\x01 \x01(\x0b\x32\x0f.upf.Expression\x12\x1a\n\x01v\x18\x02 \x01(\x0b\x32\x0f.upf.Expression\"&\n\x07Payload\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x8c\x01\n\x06\x41\x63tion\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x12\n\nparameters\x18\x02 \x03(\t\x12\x16\n\x0eparameterTypes\x18\x03 \x03(\t\x12&\n\rpreconditions\x18\x04 \x03(\x0b\x32\x0f.upf.Expression\x12 \n\x07\x65\x66\x66\x65\x63ts\x18\x05 \x03(\x0b\x32\x0f.upf.Assignment\"\xb8\x01\n\x07Problem\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1c\n\x07\x66luents\x18\x02 \x03(\x0b\x32\x0b.upf.Fluent\x12\x1c\n\x07objects\x18\x03 \x03(\x0b\x32\x0b.upf.Object\x12\x1c\n\x07\x61\x63tions\x18\x04 \x03(\x0b\x32\x0b.upf.Action\x12%\n\x0cinitialState\x18\x05 \x03(\x0b\x32\x0f.upf.Assignment\x12\x1e\n\x05goals\x18\x06 \x03(\x0b\x32\x0f.upf.Expression\"R\n\x0e\x41\x63tionInstance\x12\x1b\n\x06\x61\x63tion\x18\x01 \x01(\x0b\x32\x0b.upf.Action\x12#\n\nparameters\x18\x02 \x03(\x0b\x32\x0f.upf.Expression\"6\n\x0eSequentialPlan\x12$\n\x07\x61\x63tions\x18\x01 \x03(\x0b\x32\x13.upf.ActionInstance\";\n\x06\x41nswer\x12\x0e\n\x06status\x18\x01 \x01(\x05\x12!\n\x04plan\x18\x02 \x01(\x0b\x32\x13.upf.SequentialPlan2(\n\x03Upf\x12!\n\x04plan\x12\x0c.upf.Problem\x1a\x0b.upf.Answerb\x06proto3'
 )
 
 
@@ -27,28 +27,28 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _FLUENT = _descriptor.Descriptor(
   name='Fluent',
-  full_name='Fluent',
+  full_name='upf.Fluent',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='Fluent.name', index=0,
+      name='name', full_name='upf.Fluent.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='valueType', full_name='Fluent.valueType', index=1,
+      name='valueType', full_name='upf.Fluent.valueType', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='signature', full_name='Fluent.signature', index=2,
+      name='signature', full_name='upf.Fluent.signature', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -66,28 +66,28 @@ _FLUENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=13,
-  serialized_end=73,
+  serialized_start=18,
+  serialized_end=78,
 )
 
 
 _OBJECT = _descriptor.Descriptor(
   name='Object',
-  full_name='Object',
+  full_name='upf.Object',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='Object.name', index=0,
+      name='name', full_name='upf.Object.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='type', full_name='Object.type', index=1,
+      name='type', full_name='upf.Object.type', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -105,35 +105,35 @@ _OBJECT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=75,
-  serialized_end=111,
+  serialized_start=80,
+  serialized_end=116,
 )
 
 
 _EXPRESSION = _descriptor.Descriptor(
   name='Expression',
-  full_name='Expression',
+  full_name='upf.Expression',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='Expression.type', index=0,
+      name='type', full_name='upf.Expression.type', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='args', full_name='Expression.args', index=1,
+      name='args', full_name='upf.Expression.args', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='payload', full_name='Expression.payload', index=2,
+      name='payload', full_name='upf.Expression.payload', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -151,28 +151,28 @@ _EXPRESSION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=113,
-  serialized_end=193,
+  serialized_start=118,
+  serialized_end=206,
 )
 
 
 _ASSIGNMENT = _descriptor.Descriptor(
   name='Assignment',
-  full_name='Assignment',
+  full_name='upf.Assignment',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='x', full_name='Assignment.x', index=0,
+      name='x', full_name='upf.Assignment.x', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='v', full_name='Assignment.v', index=1,
+      name='v', full_name='upf.Assignment.v', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -190,28 +190,28 @@ _ASSIGNMENT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=195,
-  serialized_end=255,
+  serialized_start=208,
+  serialized_end=276,
 )
 
 
 _PAYLOAD = _descriptor.Descriptor(
   name='Payload',
-  full_name='Payload',
+  full_name='upf.Payload',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='Payload.type', index=0,
+      name='type', full_name='upf.Payload.type', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='value', full_name='Payload.value', index=1,
+      name='value', full_name='upf.Payload.value', index=1,
       number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -229,49 +229,49 @@ _PAYLOAD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=257,
-  serialized_end=295,
+  serialized_start=278,
+  serialized_end=316,
 )
 
 
 _ACTION = _descriptor.Descriptor(
   name='Action',
-  full_name='Action',
+  full_name='upf.Action',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='Action.name', index=0,
+      name='name', full_name='upf.Action.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='parameters', full_name='Action.parameters', index=1,
+      name='parameters', full_name='upf.Action.parameters', index=1,
       number=2, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='parameterTypes', full_name='Action.parameterTypes', index=2,
+      name='parameterTypes', full_name='upf.Action.parameterTypes', index=2,
       number=3, type=9, cpp_type=9, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='preconditions', full_name='Action.preconditions', index=3,
+      name='preconditions', full_name='upf.Action.preconditions', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='effects', full_name='Action.effects', index=4,
+      name='effects', full_name='upf.Action.effects', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -289,56 +289,56 @@ _ACTION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=298,
-  serialized_end=430,
+  serialized_start=319,
+  serialized_end=459,
 )
 
 
 _PROBLEM = _descriptor.Descriptor(
   name='Problem',
-  full_name='Problem',
+  full_name='upf.Problem',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='name', full_name='Problem.name', index=0,
+      name='name', full_name='upf.Problem.name', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='fluents', full_name='Problem.fluents', index=1,
+      name='fluents', full_name='upf.Problem.fluents', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='objects', full_name='Problem.objects', index=2,
+      name='objects', full_name='upf.Problem.objects', index=2,
       number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='actions', full_name='Problem.actions', index=3,
+      name='actions', full_name='upf.Problem.actions', index=3,
       number=4, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='initialState', full_name='Problem.initialState', index=4,
+      name='initialState', full_name='upf.Problem.initialState', index=4,
       number=5, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='goals', full_name='Problem.goals', index=5,
+      name='goals', full_name='upf.Problem.goals', index=5,
       number=6, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -356,28 +356,28 @@ _PROBLEM = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=433,
-  serialized_end=597,
+  serialized_start=462,
+  serialized_end=646,
 )
 
 
 _ACTIONINSTANCE = _descriptor.Descriptor(
   name='ActionInstance',
-  full_name='ActionInstance',
+  full_name='upf.ActionInstance',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='action', full_name='ActionInstance.action', index=0,
+      name='action', full_name='upf.ActionInstance.action', index=0,
       number=1, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='parameters', full_name='ActionInstance.parameters', index=1,
+      name='parameters', full_name='upf.ActionInstance.parameters', index=1,
       number=2, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -395,21 +395,21 @@ _ACTIONINSTANCE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=599,
-  serialized_end=673,
+  serialized_start=648,
+  serialized_end=730,
 )
 
 
 _SEQUENTIALPLAN = _descriptor.Descriptor(
   name='SequentialPlan',
-  full_name='SequentialPlan',
+  full_name='upf.SequentialPlan',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='actions', full_name='SequentialPlan.actions', index=0,
+      name='actions', full_name='upf.SequentialPlan.actions', index=0,
       number=1, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
@@ -427,28 +427,28 @@ _SEQUENTIALPLAN = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=675,
-  serialized_end=725,
+  serialized_start=732,
+  serialized_end=786,
 )
 
 
 _ANSWER = _descriptor.Descriptor(
   name='Answer',
-  full_name='Answer',
+  full_name='upf.Answer',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='status', full_name='Answer.status', index=0,
+      name='status', full_name='upf.Answer.status', index=0,
       number=1, type=5, cpp_type=1, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='plan', full_name='Answer.plan', index=1,
+      name='plan', full_name='upf.Answer.plan', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -466,8 +466,8 @@ _ANSWER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=727,
-  serialized_end=782,
+  serialized_start=788,
+  serialized_end=847,
 )
 
 _EXPRESSION.fields_by_name['args'].message_type = _EXPRESSION
@@ -500,70 +500,70 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 Fluent = _reflection.GeneratedProtocolMessageType('Fluent', (_message.Message,), {
   'DESCRIPTOR' : _FLUENT,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Fluent)
+  # @@protoc_insertion_point(class_scope:upf.Fluent)
   })
 _sym_db.RegisterMessage(Fluent)
 
 Object = _reflection.GeneratedProtocolMessageType('Object', (_message.Message,), {
   'DESCRIPTOR' : _OBJECT,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Object)
+  # @@protoc_insertion_point(class_scope:upf.Object)
   })
 _sym_db.RegisterMessage(Object)
 
 Expression = _reflection.GeneratedProtocolMessageType('Expression', (_message.Message,), {
   'DESCRIPTOR' : _EXPRESSION,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Expression)
+  # @@protoc_insertion_point(class_scope:upf.Expression)
   })
 _sym_db.RegisterMessage(Expression)
 
 Assignment = _reflection.GeneratedProtocolMessageType('Assignment', (_message.Message,), {
   'DESCRIPTOR' : _ASSIGNMENT,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Assignment)
+  # @@protoc_insertion_point(class_scope:upf.Assignment)
   })
 _sym_db.RegisterMessage(Assignment)
 
 Payload = _reflection.GeneratedProtocolMessageType('Payload', (_message.Message,), {
   'DESCRIPTOR' : _PAYLOAD,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Payload)
+  # @@protoc_insertion_point(class_scope:upf.Payload)
   })
 _sym_db.RegisterMessage(Payload)
 
 Action = _reflection.GeneratedProtocolMessageType('Action', (_message.Message,), {
   'DESCRIPTOR' : _ACTION,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Action)
+  # @@protoc_insertion_point(class_scope:upf.Action)
   })
 _sym_db.RegisterMessage(Action)
 
 Problem = _reflection.GeneratedProtocolMessageType('Problem', (_message.Message,), {
   'DESCRIPTOR' : _PROBLEM,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Problem)
+  # @@protoc_insertion_point(class_scope:upf.Problem)
   })
 _sym_db.RegisterMessage(Problem)
 
 ActionInstance = _reflection.GeneratedProtocolMessageType('ActionInstance', (_message.Message,), {
   'DESCRIPTOR' : _ACTIONINSTANCE,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:ActionInstance)
+  # @@protoc_insertion_point(class_scope:upf.ActionInstance)
   })
 _sym_db.RegisterMessage(ActionInstance)
 
 SequentialPlan = _reflection.GeneratedProtocolMessageType('SequentialPlan', (_message.Message,), {
   'DESCRIPTOR' : _SEQUENTIALPLAN,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:SequentialPlan)
+  # @@protoc_insertion_point(class_scope:upf.SequentialPlan)
   })
 _sym_db.RegisterMessage(SequentialPlan)
 
 Answer = _reflection.GeneratedProtocolMessageType('Answer', (_message.Message,), {
   'DESCRIPTOR' : _ANSWER,
   '__module__' : 'upf_pb2'
-  # @@protoc_insertion_point(class_scope:Answer)
+  # @@protoc_insertion_point(class_scope:upf.Answer)
   })
 _sym_db.RegisterMessage(Answer)
 
@@ -571,17 +571,17 @@ _sym_db.RegisterMessage(Answer)
 
 _UPF = _descriptor.ServiceDescriptor(
   name='Upf',
-  full_name='Upf',
+  full_name='upf.Upf',
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=784,
-  serialized_end=816,
+  serialized_start=849,
+  serialized_end=889,
   methods=[
   _descriptor.MethodDescriptor(
     name='plan',
-    full_name='Upf.plan',
+    full_name='upf.Upf.plan',
     index=0,
     containing_service=None,
     input_type=_PROBLEM,
