@@ -4,15 +4,12 @@
  */
 use async_trait::async_trait;
 use tonic::{transport::Server, Request, Response, Status};
-use upf::upf_server::{Upf, UpfServer};
-use upf::{
-    Action, ActionInstance, Answer, Assignment, Expression, Fluent, Object, Payload, Problem,
-    SequentialPlan,
-};
 
-pub mod upf {
-    tonic::include_proto!("upf");
-}
+mod serialize;
+use serialize::*;
+
+use upf::upf_server::{Upf, UpfServer};
+use upf::{Answer, Problem};
 
 #[derive(Default)]
 pub struct UpfService {}
@@ -21,25 +18,14 @@ pub struct UpfService {}
 impl Upf for UpfService {
     async fn plan(&self, request: Request<Problem>) -> Result<Response<Answer>, Status> {
         let problem = request.into_inner();
-        println!("{:?}", problem);
+
+        //Deserialize the problem
+        let problem_ = Problem_::parse_problem(problem);
+        println!("{:?}", problem_);
         let answer = Answer::default();
         let response = Response::new(answer);
         Ok(response)
     }
-}
-
-#[derive(Default, Debug, Clone)]
-pub struct Deserialize {
-    pub fluent: Fluent,
-    pub object: Object,
-    pub expression: Expression,
-    pub assignment: Assignment,
-    pub payload: Payload,
-    pub action: Action,
-    pub problem: Problem,
-    pub action_instance: ActionInstance,
-    pub sequential_plan: SequentialPlan,
-    pub answer: Answer,
 }
 
 #[tokio::main]
