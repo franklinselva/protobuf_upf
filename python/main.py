@@ -86,11 +86,6 @@ def main():
     client = UpfGrpcClient(host="127.0.0.1", port=2222)
     plan = client(problem)
 
-    # Validate plan
-    with PlanValidator(problem_kind=problem.kind()) as validator:
-        res = validator.validate(problem, plan)
-        print(res)
-
     # server.wait_for_termination()
 
 

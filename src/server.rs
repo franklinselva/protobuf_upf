@@ -20,8 +20,8 @@ pub struct UpfService {}
 #[async_trait]
 impl Upf for UpfService {
     async fn plan(&self, request: Request<Problem>) -> Result<Response<Answer>, Status> {
-        println! ("Planning...");
-        let _problem = Problem::from(request.into_inner());
+        let problem = request.into_inner();
+        println!("{:?}", problem);
         let answer = Answer::default();
         let response = Response::new(answer);
         Ok(response)
