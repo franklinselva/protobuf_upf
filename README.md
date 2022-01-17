@@ -4,6 +4,8 @@
  license that can be found in the LICENSE file.
 -->
 
+> **NOTE: This repo will not be used for development anymore and any more information or progress can be tracked in this [PR]**(https://github.com/plaans/aries/pull/29)
+
 # PROTOBUF - UPF
 
 This is a temporary repository for working with UPF serialization.
