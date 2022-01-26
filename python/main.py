@@ -70,7 +70,7 @@ def main():
     print("\033[94m" + "Acquired problems: " + "\033[0m")
     for key in problems_.keys():
         print(key)
-    problem = problems_["robot"].problem
+    problem = problems_["robot_modified"].problem
 
     if EXPORT_TEMPLATE:
         with open("data/problem.md", "w") as f:

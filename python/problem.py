@@ -60,6 +60,34 @@ def get_example_problems():
     robot = Example(problem=problem, plan=plan)
     problems["robot"] = robot
 
+
+    Location = UserType("Location")
+    robot_at = Fluent("robot_at", BoolType(), [Location])
+    move = InstantaneousAction("move", l_from=Location, l_to=Location)
+    l_from = move.parameter("l_from")
+    l_to = move.parameter("l_to")
+
+    move.add_precondition(Not(Equals(l_from, l_to)))
+    move.add_precondition(robot_at(l_from))
+    move.add_precondition(Not(robot_at(l_to)))
+    move.add_effect(robot_at(l_from), False)
+    move.add_effect(robot_at(l_to), True)
+    l1 = Object("l1", Location)
+    l2 = Object("l2", Location)
+    problem = Problem("robot")
+    problem.add_fluent(robot_at)
+    problem.add_action(move)
+    problem.add_object(l1)
+    problem.add_object(l2)
+    problem.set_initial_value(robot_at(l1), True)
+    problem.set_initial_value(robot_at(l2), False)
+    problem.add_goal(robot_at(l2))
+    plan = upf.plan.SequentialPlan(
+        [upf.plan.ActionInstance(move, (ObjectExp(l1), ObjectExp(l2)))]
+    )
+    robot = Example(problem=problem, plan=plan)
+    problems["robot_modified"] = robot
+
     # robot no negative preconditions
     Location = UserType("location")
     robot_at = Fluent("robot_at", BoolType(), [Location])
