@@ -58,7 +58,7 @@ class UpfGrpcClient:
                     f.write("```bash\n" + str(req) + "```")
 
             if EXPORT_BIN:
-                with open("data/UPF.bin", "wb") as f:
+                with open(f"data/bins/{problem.name}.bin", "wb") as f:
                     f.write(req.SerializeToString())
 
             answer = stub.plan(req)

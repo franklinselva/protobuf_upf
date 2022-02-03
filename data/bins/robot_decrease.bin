@@ -1,9 +1,13 @@
 
-robot
-robot_atboolLocation
+robot_decrease
+robot_atboolLocation
+battery_chargereal[0, 100]
 l1Location
-l2Location"Ü
-movel_froml_toLocationLocation"F7
+l2Location"Ç
+movel_froml_toLocationLocation":	
+int10
+fluentbattery_charge	
+none-"F7
 aparaml_from
 aparaml_to	
 none-	
@@ -20,7 +24,10 @@
 *
 aparaml_to
 fluentrobot_at
-boolTrue*9
+boolTrue*-
+
+fluentbattery_charge	
+int10*9
 %
 	
 objl1
@@ -30,7 +37,11 @@
 	
 objl2
 fluentrobot_at
-boolFalse2%
+boolFalse*.
+
+fluentbattery_charge
+
+int1002%
 	
 objl2
 fluentrobot_at
