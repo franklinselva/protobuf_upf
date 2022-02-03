@@ -11,6 +11,7 @@ from from_protobuf import FromProtobufConverter
 from problem import get_example_problems
 from to_protobuf import ToProtobufConverter
 
+EXPORT_BIN = True
 EXPORT_TEMPLATE = False
 
 
@@ -55,6 +56,10 @@ class UpfGrpcClient:
             if EXPORT_TEMPLATE:
                 with open("data/UPF.md", "w") as f:
                     f.write("```bash\n" + str(req) + "```")
+
+            if EXPORT_BIN:
+                with open("data/UPF.bin", "wb") as f:
+                    f.write(req.SerializeToString())
 
             answer = stub.plan(req)
 
