@@ -1,0 +1,23 @@
+
+basic_conditional	
+xbool	
+ybool"J
+a_x"
+fluentx	
+none-*#
+
+fluentx
+boolTrue"J
+a_y"
+fluenty	
+none-*#
+
+fluenty
+boolTrue*$
+
+fluentx
+boolFalse*$
+
+fluenty
+boolFalse2
+fluentx

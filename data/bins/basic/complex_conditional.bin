@@ -1,0 +1,90 @@
+
+complex_conditional	
+abool	
+bbool	
+cbool	
+dbool	
+kbool	
+xbool	
+ybool	
+zbool"¸
+A"
+fluenta	
+none-*#
+
+fluenta
+boolTrue*#
+
+fluentk
+boolTrue*#
+
+fluentx
+boolTrue*$
+
+fluenty
+boolFalse"[
+A_0"
+fluenta	
+none-"
+fluentd*#
+
+fluentb
+boolTrue"’
+A_1"
+fluenta	
+none-"
+fluentd"
+fluentb*$
+
+fluentc
+boolFalse*#
+
+fluentc
+boolTrue"›
+A_2*$
+
+fluenta
+boolFalse*#
+
+fluentd
+boolTrue*$
+
+fluentz
+boolFalse*#
+
+fluentz
+boolTrue*#
+
+fluenta
+boolTrue*$
+
+fluentb
+boolFalse*#
+
+fluentc
+boolTrue*$
+
+fluentd
+boolFalse*$
+
+fluentk
+boolFalse*$
+
+fluentx
+boolFalse*#
+
+fluenty
+boolTrue*$
+
+fluentz
+boolFalse2
+fluenta2
+fluentb2
+fluentc	
+none-2
+fluentd2
+fluentk2
+fluentx2
+fluenty	
+none-2
+fluentz

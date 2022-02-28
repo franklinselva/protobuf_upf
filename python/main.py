@@ -105,7 +105,10 @@ def main():
     print("\033[94m" + "Acquired problems: " + "\033[0m")
     for key in problems_.keys():
         print(key)
-    problem = problems_["robot_loader_adv"].problem
+        
+    # Get problem from user
+    problem_name = input("\033[93m" + "Enter problem name: " + "\033[0m")
+    problem = problems_[problem_name].problem
 
     if EXPORT_TEMPLATE:
         with open("data/problem.md", "w") as f:

@@ -1,0 +1,28 @@
+
+basic_exists	
+xbool
+ybool	Semaphore
+o1	Semaphore
+o2	Semaphore"{
+a"Q6'	
+strSemaphore s
+fluenty	
+none-
+str(Semaphore s,)*#
+
+fluentx
+boolTrue*$
+
+fluentx
+boolFalse*3
+
+	
+objo1
+fluenty
+boolFalse*3
+
+	
+objo2
+fluenty
+boolFalse2
+fluentx
