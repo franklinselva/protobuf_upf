@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-import upf_pb2 as upf_pb2
+import generated.upf_pb2 as upf_pb2
 from converter import Converter, handles
 import upf.model
 import upf.plan

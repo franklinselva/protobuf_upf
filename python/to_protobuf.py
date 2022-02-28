@@ -15,7 +15,7 @@
 import upf.model
 import upf.plan
 
-import upf_pb2 as upf_pb2
+import generated.upf_pb2 as upf_pb2
 from converter import Converter, handles
 
 

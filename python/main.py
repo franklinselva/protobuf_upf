@@ -1,18 +1,20 @@
 # Copyright 2022 Franklin Selva. All rights reserved.
 # Use of this source code is governed by a BSD-style
 # license that can be found in the LICENSE file.
+import argparse
+import os
 from concurrent import futures
 
 import grpc
 from upf.shortcuts import *
 
-import upf_pb2_grpc as upf_pb2_grpc
+import generated.upf_pb2_grpc as upf_pb2_grpc
 from from_protobuf import FromProtobufConverter
-from problem import get_example_problems
 from to_protobuf import ToProtobufConverter
 
-EXPORT_BIN = True
-EXPORT_TEMPLATE = False
+EXPORT_BIN = None
+EXPORT_TEMPLATE = None
+MODE = None
 
 
 class UpfGrpcServer(upf_pb2_grpc.UpfServicer):
@@ -58,7 +60,10 @@ class UpfGrpcClient:
                     f.write("```bash\n" + str(req) + "```")
 
             if EXPORT_BIN:
-                with open(f"data/bins/{problem.name}.bin", "wb") as f:
+                dir = f"data/bins/{MODE}"
+                if not os.path.exists(dir):
+                    os.makedirs(dir)
+                with open(f"{dir}/{problem.name}.bin", "wb") as f:
                     f.write(req.SerializeToString())
 
             answer = stub.plan(req)
@@ -69,13 +74,38 @@ class UpfGrpcClient:
 
 def main():
     """Main function"""
+    global EXPORT_BIN, EXPORT_TEMPLATE, MODE
+
+    parser = argparse.ArgumentParser(
+        description="UPF client for planning. Holds set of basic or advanced problems."
+    )
+    parser.add_argument("--mode", type=str, default="basic", help="basic or advanced")
+    parser.add_argument("--port", type=int, default=2222, help="port")
+    parser.add_argument("--host", type=str, default="127.0.0.1", help="host")
+    parser.add_argument("--export_bin", action="store_true", help="export binary")
+    parser.add_argument(
+        "--export_template",
+        action="store_true",
+        help="export template to markdown files",
+    )
+    host = parser.parse_args().host
+    port = parser.parse_args().port
+    MODE = parser.parse_args().mode
+    EXPORT_BIN = parser.parse_args().export_bin
+    EXPORT_TEMPLATE = parser.parse_args().export_template
+
+    if MODE == "basic":
+        from basic_problems import get_example_problems
+    else:
+        from problems import get_example_problems
+
     # Setup problem
     print("\033[92m" + "Acquiring problems..." + "\033[0m")
     problems_ = get_example_problems()
     print("\033[94m" + "Acquired problems: " + "\033[0m")
     for key in problems_.keys():
         print(key)
-    problem = problems_["robot_modified"].problem
+    problem = problems_["robot_loader_adv"].problem
 
     if EXPORT_TEMPLATE:
         with open("data/problem.md", "w") as f:
@@ -88,7 +118,7 @@ def main():
 
     # Start client
     print("\033[92m" + "Starting client..." + "\033[0m")
-    client = UpfGrpcClient(host="127.0.0.1", port=2222)
+    client = UpfGrpcClient(host=host, port=port)
     plan = client(problem)
 
     # server.wait_for_termination()
