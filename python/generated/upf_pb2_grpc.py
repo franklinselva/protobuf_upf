@@ -2,10 +2,10 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import generated.upf_pb2 as upf__pb2
+import upf_pb2 as upf__pb2
 
 
-class UpfStub(object):
+class UnifiedPlanningStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -14,66 +14,57 @@ class UpfStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.plan = channel.unary_unary(
-            "/upf.Upf/plan",
-            request_serializer=upf__pb2.Problem.SerializeToString,
-            response_deserializer=upf__pb2.Answer.FromString,
-        )
+        self.planOneShot = channel.unary_stream(
+                '/UnifiedPlanning/planOneShot',
+                request_serializer=upf__pb2.PlanRequest.SerializeToString,
+                response_deserializer=upf__pb2.Answer.FromString,
+                )
 
 
-class UpfServicer(object):
+class UnifiedPlanningServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def plan(self, request, context):
-        """Missing associated documentation comment in .proto file."""
+    def planOneShot(self, request, context):
+        """A plan request to the planner.
+        The planner replies with a stream of N `Answer` messages where:
+        - the first (N-1) message are of type `IntermediateReport`
+        - the last message is of type `FinalReport`
+        """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
-def add_UpfServicer_to_server(servicer, server):
+def add_UnifiedPlanningServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "plan": grpc.unary_unary_rpc_method_handler(
-            servicer.plan,
-            request_deserializer=upf__pb2.Problem.FromString,
-            response_serializer=upf__pb2.Answer.SerializeToString,
-        ),
+            'planOneShot': grpc.unary_stream_rpc_method_handler(
+                    servicer.planOneShot,
+                    request_deserializer=upf__pb2.PlanRequest.FromString,
+                    response_serializer=upf__pb2.Answer.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "upf.Upf", rpc_method_handlers
-    )
+            'UnifiedPlanning', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
-class Upf(object):
+ # This class is part of an EXPERIMENTAL API.
+class UnifiedPlanning(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def plan(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        insecure=False,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def planOneShot(request,
             target,
-            "/upf.Upf/plan",
-            upf__pb2.Problem.SerializeToString,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_stream(request, target, '/UnifiedPlanning/planOneShot',
+            upf__pb2.PlanRequest.SerializeToString,
             upf__pb2.Answer.FromString,
-            options,
-            channel_credentials,
-            insecure,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
